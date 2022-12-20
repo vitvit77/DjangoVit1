@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Головна
+{% endblock %}
+
+{% block content %}
+{% for el in AllJobs %}
+    <div class = "alert alert-warning mt-2">
+        <h3><u>{{ el.Jobtitle }}</u></h3>
+        <h5>{{ el.Company }}</h5>
+        <h5>{{ el.Discription }}</h5>
+        <h5>{{ el.JobDate }}</h5>
+        <h5>{{ el.Salary }}</h5>
+        <h5>{{ el.Region }}</h5>
+
+    </div>
+{% endfor %}
+{% endblock %}

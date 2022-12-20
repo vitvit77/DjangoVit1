@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Вакансiя
+{% endblock %}
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    <label for="Jobtitle"><b>Вакансiя</b></label>
+    {{ form.Jobtitle }}<br>
+    <label for="Company"><b>Компанiя</b></label>
+    {{ form.Company }}<br>
+    <label for="Discription"><b>Опис</b></label>
+    {{ form.Discription }}<br>
+    <label for="JobDate"><b>Дата</b></label>
+    {{ form.JobDate }}<br>
+    <label for="Salary"><b>Розмiр зарплатнi</b></label>
+    {{ form.Salary }}<br>
+    <label for="Region"><b>Регiон</b></label>
+    {{ form.Region }}<br>
+    <button type="submit" class="btn btn-info">Зберегти</button>
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Вакансiя
+{% endblock %}
+
+{% block content %}
+    <div class = "alert alert-warning mt-2">
+        <h3><u>{{ OneJob.Jobtitle }}</u></h3>
+        <h5>{{ OneJob.Company }}</h5>
+        <h5>{{ OneJob.Discription }}</h5>
+        <h5>{{ OneJob.JobDate }}</h5>
+        <h5>{{ OneJob.Salary }}</h5>
+        <h5>{{ OneJob.Region }}</h5>
+
+    </div>
+{% endblock %}

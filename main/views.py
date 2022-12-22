@@ -9,6 +9,9 @@ def index(request):
     AllJobs = Vacancy.objects.all()
     return render(request, "main/index.html", {'title': 'Головна строрiнка', 'AllJobs' : AllJobs})
 
+def index_tab(request):
+    AllJobs = Vacancy.objects.all()
+    return render(request, "main/index_tab.html", {'title': 'Перелiк вакансiй', 'AllJobs' : AllJobs})
 def about(request):
     return render(request, "main/about.html")
 
@@ -30,13 +33,9 @@ def create(request):
 
 def vacancy_view(request, id=1):
     OneJob = Vacancy.objects.get(id=id)
-    print(OneJob.id)
+    #print(OneJob.id)
     return render(request, "main/vacancy_view.html", {'title': 'Перегляд оголошення', 'OneJob': OneJob})
 
-
-def index_tab(request):
-    AllJobs = Vacancy.objects.all()
-    return render(request, "main/index_tab.html", {'title': 'Перелiк вакансiй', 'AllJobs' : AllJobs})
 
 def vacancy_edit(request, id=0):
 

@@ -9,8 +9,7 @@ class Vacancy(models.Model):
     Region = models.CharField('Регiон',max_length=30)
 
     def __str__(self):
-      #  return self.Jobtitle, self.Company, self.Discription, self.JobDate, self.Salary, self.Region
-      return str(self.Salary)
+        return str(self.Salary)
     class Meta:
         verbose_name = 'Записи о вакансиях'
         verbose_name_plural = 'Записи о вакансиях'

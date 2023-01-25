@@ -1,5 +1,6 @@
-from .models import Vacancy
-from django.forms import ModelForm, TextInput, Textarea, NumberInput,DateInput
+from .models import Vacancy, Comments
+from django.contrib.auth.models import User
+from django.forms import ModelForm, TextInput, Textarea, NumberInput,DateInput, PasswordInput, EmailInput
 
 class VacancyForm(ModelForm):
     class Meta:
@@ -31,4 +32,57 @@ class VacancyForm(ModelForm):
                 'placeholder': "Введiть регiон"
             }),
 
+        }
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comments
+        fields = ['comment']
+        widgets = {
+            'comment': Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Введіть коментар'
+            }),
+        }
+
+class LoginForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password']
+        widgets = {
+            'username': TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Логін',
+            }),
+            'password': PasswordInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Пароль'
+            }),
+        }
+
+class RegisterForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'email', 'first_name', 'last_name']
+        widgets = {
+            'username': TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Логін',
+            }),
+            'password': PasswordInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Пароль'
+            }),
+            'email': EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Email',
+            }),
+            'first_name': TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Ім\'я',
+            }),
+            'last_name': TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Прізвище',
+            }),
         }

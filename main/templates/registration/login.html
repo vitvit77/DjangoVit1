@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+  <main class="form-signin w-50 m-auto">
+    <form action="" method="POST">
+      {% csrf_token %}
+      <h1 class="h3 mb-3 fw-normal">Авторизація</h1>
+      <div class="form-floating">
+        {{ form.username }}
+        <label for="username">Логін</label>
+      </div>
+      <div class="form-floating">
+        {{ form.password }}
+        <label for="password">Пароль</label>
+      </div>
+      <div class="checkbox mb-3">
+        <a href="{% url 'register' %}">Регістрація</a>
+          {% if login_error %}
+            <label class="error">{{ login_error }}</label>
+          {% endif %}
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Вхід</button>
+    </form>
+  </main>
+{% endblock %}

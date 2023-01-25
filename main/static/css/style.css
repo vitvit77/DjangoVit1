@@ -1,0 +1,22 @@
+a {
+    color: #0ae;
+    text-decoration: none!important;
+}
+
+a:hover {
+    color: #0285bb;
+    text-decoration: none!important;
+}
+
+a:active {
+    color: #39c7ff;
+    text-decoration: none!important;
+}
+
+.nav-link:hover {
+    background-color: #d8f2fd !important;
+}
+
+.nav-pills .nav-link {
+    margin: 12px 12px 0px 0px!important;
+}

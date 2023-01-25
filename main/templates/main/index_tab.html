@@ -13,6 +13,7 @@
         <th scope="col">Компанiя</th>
         <th scope="col">Зар. плата</th>
         <th scope="col">Регiон</th>
+        <th scope="col">Дія</th>
     </tr>
     <tbode>
         {% if AllJobs %}
@@ -23,10 +24,12 @@
             <td>{{ el.Company }}</td>
             <td>{{ el.Salary }}</td>
             <td>{{ el.Region }}</td>
-            <td><a type="button" class="btn btn-info btn-sm" href="vacancy/{{el.id}}/view/"><img width="25" src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/document_view.png"</img></a></td>
-            <td><a type="button" class="btn btn-warning btn-sm" href="vacancy/{{el.id}}/edit/"><img width="25" src="https://iconarchive.com/download/i7951/hopstarter/soft-scraps/Text-Edit.ico"</img></a></td>
-            <td><a type="button" class="btn btn-danger btn-sm" href="vacancy/{{el.id}}/del/"><img width="25" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSARwnY1m5YSQMcYcCzlqLXJ0d_tbcQOEWJWQ&usqp=CAU"</img></a></td>
-
+            <td><a type="button" class="btn btn-info btn-sm" href="vacancy/{{el.id}}/view/"><img width="25" src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/document_view.png" /></a>
+      {% if request.user.is_authenticated and el.user.id == request.user.id %}
+            <a type="button" class="btn btn-warning btn-sm" href="vacancy/{{el.id}}/edit/"><img width="25" src="https://iconarchive.com/download/i7951/hopstarter/soft-scraps/Text-Edit.ico" /></a>
+            <a type="button" class="btn btn-danger btn-sm" href="vacancy/{{el.id}}/del/"><img width="25" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSARwnY1m5YSQMcYcCzlqLXJ0d_tbcQOEWJWQ&usqp=CAU" /></a>
+      {% endif %}
+           </td>
         {% endfor %}
         {% else %}
             <p>---</p>

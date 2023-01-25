@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Редагувати коментар
+{% endblock %}
+
+{% block content %}
+
+<h1>Редагувати коментар</h1>
+    {% if request.user.is_authenticated %}
+    <form action="" method="post" autocomplete="off">
+        {% csrf_token %}
+        <label for="comment"><b>Ваш коментар</b></label>
+        {{ form.comment }}
+        <button type="submit" class="btn btn-success">Редагувати коментар</button>
+    </form>
+    {% endif %}
+{% endblock %}

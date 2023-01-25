@@ -14,6 +14,28 @@
         <h5>Регiон: {{ OneJob.Region }}</h5>
 
     </div>
-
+    <h2>Коментарі:</h2>
+    <ul>
+    {% for comment in comments %}
+        {% load static %}
+        <li>{% if request.user.id == comment.user.id %}
+            <a href="{% url 'comment_delete' id=comment.id %}">
+                <img src="{% static 'images/delete.png' %}" alt="Видалити" title="Видалити" width="32" height="32" />
+            </a>
+            <a href="{% url 'comment_edit' id=comment.id %}">
+                <img src="{% static 'images/edit.png' %}" alt="Редагувати" title="Редагувати" width="32" height="32" />
+            </a>
+            {% endif %}{{ comment.comment }}
+        </li>
+    {% endfor %}
+    </ul>
+    {% if request.user.is_authenticated %}
+    <form action="{% url 'vacancy_add_comment' id=OneJob.id %}" method="post" autocomplete="off">
+        {% csrf_token %}
+        <label for="comment"><b>Ваш коментар</b></label>
+        {{ comment_form.comment }}
+        <button type="submit" class="btn btn-success">Додати коментар</button>
+    </form>
+    {% endif %}
 
 {% endblock %}
